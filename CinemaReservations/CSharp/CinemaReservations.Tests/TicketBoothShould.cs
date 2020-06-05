@@ -26,19 +26,47 @@ namespace CinemaReservations.Tests
         [Test]
         public void Return_SeatsNotAvailable_when_all_seats_are_unavailable()
         {
-            Check.That(true).IsFalse();
+            const string showId = "5";
+            const int partyRequested = 1;
+
+            IMovieScreeningRepository repository =  new StubMovieScreeningRepository();
+            TicketBooth ticketBooth = new TicketBooth(repository);
+
+            var seatsAllocated = ticketBooth.AllocateSeats(new AllocateSeats(showId, partyRequested));
+
+            Check.That(seatsAllocated.ReservedSeats).HasSize(0);
+            Check.That(seatsAllocated).IsInstanceOf<NoPossibleAllocationsFound>();
         }
 
         [Test]
         public void Reserve_first_possibility_for_multiple_seats_when_available()
         {
-            Check.That(true).IsFalse();
+            const string showId = "3";
+            const int partyRequested = 2;
+
+            IMovieScreeningRepository repository =  new StubMovieScreeningRepository();
+            TicketBooth ticketBooth = new TicketBooth(repository);
+
+            var seatsAllocated = ticketBooth.AllocateSeats(new AllocateSeats(showId, partyRequested));
+
+            Check.That(seatsAllocated.ReservedSeats).HasSize(2);
+            Check.That(seatsAllocated.ReservedSeats[0].ToString()).IsEqualTo("A6");
+            Check.That(seatsAllocated.ReservedSeats[1].ToString()).IsEqualTo("A7");
         }
 
         [Test]
         public void Return_TooManyTicketsRequested_when_9_tickets_are_requested()
         {
-            Check.That(true).IsFalse();
+            const string showId = "5";
+            const int partyRequested = 9;
+
+            IMovieScreeningRepository repository =  new StubMovieScreeningRepository();
+            TicketBooth ticketBooth = new TicketBooth(repository);
+
+            var seatsAllocated = ticketBooth.AllocateSeats(new AllocateSeats(showId, partyRequested));
+
+            Check.That(seatsAllocated.ReservedSeats).HasSize(0);
+            Check.That(seatsAllocated).IsInstanceOf<TooManyTicketsRequested>();
         }
 
     }

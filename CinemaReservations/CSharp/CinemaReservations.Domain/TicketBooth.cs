@@ -10,7 +10,15 @@ namespace CinemaReservations.Domain
 
         public SeatsAllocated AllocateSeats(AllocateSeats allocateSeats)
         {
-            return null;
+            try
+            {
+                MovieScreening movieScreening = _screeningRepository.FindMovieScreeningById(allocateSeats.ShowId);
+                return movieScreening.allocateSeats(allocateSeats);
+            }
+            catch
+            {
+                return new NoPossibleAllocationsFound(allocateSeats.PartyRequested);
+            }
         }
 
     }
