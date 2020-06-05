@@ -1,0 +1,7 @@
+.ionide/
+.vscode/
+.idea/
+bin/
+obj/
+.DS_Store
+*.DotSettings.user
