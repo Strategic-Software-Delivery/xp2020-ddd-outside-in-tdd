@@ -32,12 +32,6 @@ public class TicketBoothShould {
     }
 
     @Test
-    public void reserve_first_possibility_for_multiple_seats_when_available()
-    {
-        assertThat(true).isFalse();
-    }
-
-    @Test
     public void return_TooManyTicketsRequested_when_9_tickets_are_requested()
     {
         assertThat(true).isFalse();
