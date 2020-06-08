@@ -21,8 +21,8 @@ public class TicketBoothShould {
 
         SeatsAllocated seatsAllocated = ticketBooth.allocateSeats(new AllocateSeats(showId, partyRequested));
 
-        assertThat(seatsAllocated.getReservedSeats()).hasSize(1);
-        assertThat(seatsAllocated.getReservedSeats().get(0).toString()).isEqualTo("A3");
+        assertThat(seatsAllocated.reservedSeats()).hasSize(1);
+        assertThat(seatsAllocated.reservedSeats().get(0).toString()).isEqualTo("A3");
     }
 
     @Test
