@@ -11,25 +11,25 @@ public class MovieScreening {
     }
 
     public SeatsAllocated allocateSeats(AllocateSeats allocateSeats) throws TooManyTicketsRequested, NoPossibleAllocationsFound {
-        if (allocateSeats.getPartyRequested() > MAXIMUM_NUMBER_OF_ALLOWED_TICKETS) {
-            throw new TooManyTicketsRequested(allocateSeats.getPartyRequested());
+        if (allocateSeats.partyRequested() > MAXIMUM_NUMBER_OF_ALLOWED_TICKETS) {
+            throw new TooManyTicketsRequested(allocateSeats.partyRequested());
         }
 
-        SeatAllocation allocation = new SeatAllocation(allocateSeats.getPartyRequested());
+        SeatAllocation allocation = new SeatAllocation(allocateSeats.partyRequested());
 
         for (Map.Entry<String, Row> entry: rows.entrySet()) {
 
-            for (Seat seat :  entry.getValue().getSeats()) {
+            for (Seat seat :  entry.getValue().seats()) {
                 if (seat.isAvailable())
                 {
                     allocation.addSeat(seat);
 
                     if(allocation.isFulfilled()) {
-                        return new SeatsAllocated(allocateSeats.getPartyRequested(), allocation.getAllocatedSeats());
+                        return new SeatsAllocated(allocateSeats.partyRequested(), allocation.allocatedSeats());
                     }
                 }
             }
         }
-        throw new NoPossibleAllocationsFound(allocateSeats.getPartyRequested());
+        throw new NoPossibleAllocationsFound(allocateSeats.partyRequested());
     }
 }

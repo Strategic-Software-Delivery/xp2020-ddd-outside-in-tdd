@@ -43,14 +43,14 @@ public class StubMovieScreeningRepository implements MovieScreeningRepository {
 
         Map<String, Row> rows = new HashMap<>();
 
-        for (Map.Entry<String, ImmutableList<SeatDto>> rowDto : movieScreeningDto.getRows().entrySet()) {
+        for (Map.Entry<String, ImmutableList<SeatDto>> rowDto : movieScreeningDto.rows().entrySet()) {
             List<Seat> seats = new ArrayList<>();
 
             rowDto.getValue().forEach(seatDto -> {
                 String rowName = rowDto.getKey();
-                int number = extractNumber(seatDto.getName());
+                int number = extractNumber(seatDto.name());
 
-                SeatAvailability seatAvailability = extractAvailability(seatDto.getSeatAvailability());
+                SeatAvailability seatAvailability = extractAvailability(seatDto.seatAvailability());
 
 
                 seats.add(new Seat(rowName, number, seatAvailability));

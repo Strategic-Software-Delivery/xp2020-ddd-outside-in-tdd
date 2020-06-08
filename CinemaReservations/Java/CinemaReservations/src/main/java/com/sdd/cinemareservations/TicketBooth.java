@@ -9,7 +9,7 @@ public class TicketBooth {
     }
 
     public SeatsAllocated allocateSeats(AllocateSeats allocateSeats) throws TooManyTicketsRequested, NoPossibleAllocationsFound, NoMovieScreeningFound {
-        MovieScreening movieScreening = movieScreeningRepository.findMovieScreeningById(allocateSeats.getShowId());
+        MovieScreening movieScreening = movieScreeningRepository.findMovieScreeningById(allocateSeats.showId());
         return movieScreening.allocateSeats(allocateSeats);
     }
 }

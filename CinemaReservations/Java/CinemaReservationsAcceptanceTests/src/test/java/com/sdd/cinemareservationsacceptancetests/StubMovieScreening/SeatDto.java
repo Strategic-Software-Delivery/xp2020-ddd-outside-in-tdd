@@ -14,5 +14,5 @@ public class SeatDto {
     private String name;
 
     @JsonProperty("SeatAvailability")
-    private String SeatAvailability;
+    private String seatAvailability;
 }
