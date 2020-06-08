@@ -15,6 +15,15 @@ public class Seat {
         this.seatAvailability = seatAvailability;
     }
 
+    public void updateAvailability(SeatAvailability newAvailability)
+    {
+        this.seatAvailability = newAvailability;
+    }
+
+    public boolean isAvailable() {
+        return seatAvailability == SeatAvailability.Available;
+    }
+
     @Override
     public String toString() {
         return rowName + number;
