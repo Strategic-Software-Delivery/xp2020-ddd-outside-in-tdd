@@ -30,12 +30,6 @@ namespace CinemaReservations.Tests
         }
 
         [Test]
-        public void Reserve_first_possibility_for_multiple_seats_when_available()
-        {
-            Check.That(true).IsFalse();
-        }
-
-        [Test]
         public void Return_TooManyTicketsRequested_when_9_tickets_are_requested()
         {
             Check.That(true).IsFalse();
