@@ -12,7 +12,7 @@ João is a Strategic Software Delivery Consultant at Xebia. He focuses on helpin
 
 When he is not on his duties, you can find him travelling with his daughter and wife, or laying down on the beach reading a book. João is an amateur cook in his remaining time.
 
-@joaoasrosa
+[@joaoasrosa](https://www.twitter.com/joaoasrosa)
 
 ### Kenny Baas-Schwegler
 
@@ -20,7 +20,7 @@ A lot of knowledge is lost when designing and building software — lost because
 
 One of my core principles is sharing knowledge. I do that by blogging on my website baasie.com I also organise several meetups like Virtual Domain-Driven Design, Domain Driven Design Nederland, and I am a public speaker giving talks and hands-on workshops at conferences and meetups. 
 
-@kenny_baas
+[@kenny_baas](https://www.twitter.com/kenny_baas)
 
 ## Workshop
 
